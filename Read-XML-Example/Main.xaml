@@ -1,0 +1,164 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="400.8,2168" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="380.8,2068" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="xml" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="xmlDeserialized" />
+      <Variable x:TypeArguments="x:Object" Name="xml_xpath_result" />
+      <Variable x:TypeArguments="scg:IEnumerable(sxl:XNode)" Name="xmlNodes" />
+      <Variable x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" Name="xmlAttributes" />
+      <Variable x:TypeArguments="x:String" Name="allExchRates" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadTextFile sap2010:Annotation.AnnotationText="Read xml file and save the content in the &quot;xml&quot; variable of type string." Content="[xml]" DisplayName="Read &quot;daily_usd.xml&quot; file as XML Source" FileName="daily_usd.xml" sap:VirtualizedContainerService.HintSize="339.2,104" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadTextFile>
+    <ui:DeserializeXml sap2010:Annotation.AnnotationText="Deserialize the XML from &quot;xml&quot; variable and output to &quot;xmlDeserialized&quot; variable of type XDocument" DisplayName="Deserialize XML from &quot;xml&quot; variable" sap:VirtualizedContainerService.HintSize="339.2,104" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[xmlDeserialized]" XMLString="[xml]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:DeserializeXml>
+    <ui:ExecuteXPath XMLString="{x:Null}" sap2010:Annotation.AnnotationText="Get lastBuildDate by Xpath to &quot;/channel/lastBuildDate&quot;. Output result to &quot;xml_xpath_result&quot; variable of type Object&#xA;&#xA;lastBuildDate in this xml file represents the date when the exchange rates were calculated." DisplayName="Execute XPath to get lastBuildDate" ExistingXML="[xmlDeserialized]" sap:VirtualizedContainerService.HintSize="339.2,196" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[xml_xpath_result]" XPathExpression="string(/channel/lastBuildDate)">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExecuteXPath>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box - Display lastBuildDate" sap:VirtualizedContainerService.HintSize="339.2,60" sap2010:WorkflowViewState.IdRef="MessageBox_16" Text="[&quot;Exchange rates for &quot; + xml_xpath_result.ToString]" TopMost="True" />
+    <ui:GetNodes XMLString="{x:Null}" sap2010:Annotation.AnnotationText="Get all the nodes from the &quot;xmlDeserialized&quot; variable and output them to the &quot;xmlNodes&quot; variable of type IEnumerable&lt;XNode&gt;" DisplayName="Get XML Nodes from &quot;xmlDeserialized&quot; variable" ExistingXML="[xmlDeserialized]" sap:VirtualizedContainerService.HintSize="339.2,120" sap2010:WorkflowViewState.IdRef="GetNodes_1" XMLNodes="[xmlNodes]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetNodes>
+    <ui:GetXMLNodeAttributes sap2010:Annotation.AnnotationText="Get attributes for &quot;title&quot; node - in our case &quot;title&quot; is node 0 and has only one attribute called &quot;language&quot;. Output attributes to the &quot;xmlAttributes&quot; variable of type IEnumerable&lt;XAttribute&gt;" Attributes="[xmlAttributes]" DisplayName="Get XML Node Attributes for &quot;title&quot; node" ExistingXMLNode="[xmlNodes(0)]" sap:VirtualizedContainerService.HintSize="339.2,136" sap2010:WorkflowViewState.IdRef="GetXMLNodeAttributes_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetXMLNodeAttributes>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Display a message box with the name and value of the attribute of the &quot;title&quot; node. In our case &quot;language&quot; is the only attribute at index 0.&#xA;&#xA;Syntax used:&#xA;xmlAttributes(0).Name.Tostring + &quot;: &quot; + xmlAttributes(0).Value.Tostring" Buttons="Ok" DisplayName="Message Box - Display attribute name and value" sap:VirtualizedContainerService.HintSize="339.2,184" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[xmlAttributes(0).Name.Tostring + &quot;: &quot; + xmlAttributes(0).Value.Tostring]" TopMost="True">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MessageBox>
+    <Assign sap2010:Annotation.AnnotationText="Initialize &quot;allExchRates&quot; variable with &quot;Exhange Rates&quot; + System.Environment.NewLine" DisplayName="Initialize &quot;allExchRates&quot; variable" sap:VirtualizedContainerService.HintSize="339.2,120" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[allExchRates]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Exhange Rates" + System.Environment.NewLine]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Iterate xmlDeserialized.Element(&quot;channel&quot;).Elements(&quot;item&quot;)" DisplayName="Iterate the &quot;item&quot; nodes" sap:VirtualizedContainerService.HintSize="339.2,471.2" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[xmlDeserialized.Element(&quot;channel&quot;).Elements(&quot;item&quot;)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="sxl:XElement">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:Annotation.AnnotationText="Append exchange rate info for current item to the &quot;allExchRates&quot; variable.&#xA;&#xA;We append:&#xA;System.Environment.NewLine + &quot;1 &quot; + item.Element(&quot;baseName&quot;).Value.ToString + &quot; = &quot; + item.Element(&quot;exchangeRate&quot;).Value.ToString + &quot; &quot; + item.Element(&quot;targetName&quot;).Value.ToString" DisplayName="Append Exchange rate to &quot;allExchRates&quot;" sap:VirtualizedContainerService.HintSize="304,292.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[allExchRates]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[allExchRates + System.Environment.NewLine + "1 " + item.Element("baseName").Value.ToString + " = " + item.Element("exchangeRate").Value.ToString + " " + item.Element("targetName").Value.ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Display a message box with all the exchange rates available in the xml file as we stored in the &quot;allExchRates&quot; variable" Buttons="Ok" DisplayName="Message Box - Display All the exchange rates" sap:VirtualizedContainerService.HintSize="339.2,120" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[allExchRates]" TopMost="True">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MessageBox>
+  </Sequence>
+</Activity>

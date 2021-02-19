@@ -1,0 +1,17 @@
+Who will you be working with?
+
+Here are some of the roles you will most often be in contact with in RPA implementations:
+
+* Solution Architect - Is in charge of defining the Architecture of the RPA solution. The Solution Architect translates the requirements captured by the functional analysts, creating the architecture and design artifacts. They lead, advises, and is responsible for the developers' team delivery.
+
+* Business Analyst -  Is responsible for mapping of the AS IS and proposed TO BE processes. Business Analysts hold knowledge of the business process that gets automated, general business process theory and RPA capabilities. They are responsible with listing the process requirements for automation, clarifying the inputs and expected outputs, creating RPA documentation (Process Design Documents, Process maps.
+    
+* Implementation Manager/Project Manager - Forms and manages the RPA team, does resource planning and teams availability, in order to hit automation goals. Most of the times the PM is the Single Point of Contact (SPOC) for questions, RPA initiatives, or parallel RPA product projects.
+
+* RPA Developers - On complex projects, several developers will collaborate to automate all processes. 
+
+* Infrastructure & IT Security admin - With good technical and security skills, they are responsible for setting up and maintaining hardware & software resources for UiPath product installations. They set up accounts for all the devs, end users and robots.
+
+* Process Owner - Is the key stakeholder and beneficiaries of the RPA solution. Usually Senior Management level,  with some 10-15+ years of experience, possibly split across domains. Multiple people can have this role, based on department (Finance, IT, HR, etc).   
+
+* RPA Support - Manage the robots after the processes have been moved to production, with support from the original RPA devs who have performed the automation. May have multiple levels of support: L1- Client, L2- client/ partner, (L0 – Super users; L3 – UiPath)
